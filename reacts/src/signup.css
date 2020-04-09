@@ -1,0 +1,22 @@
+
+.bg{
+
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    width: 900px;
+  
+
+    margin : 90px;
+    height: 1000px;
+    padding: 60px;
+margin-left: 200px; 
+}
+.bu{
+        width: 120px;
+        border-radius: 820px;
+        border: 2px solid rgb(0, 63, 122); 
+    background: rgb(0, 0, 0);
+ /* padding: 10px; */
+ margin: 20px;
+    color: rgb(10, 206, 255);
+}

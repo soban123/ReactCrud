@@ -1,0 +1,42 @@
+
+@import url('https://fonts.googleapis.com/css?family=Righteous&display=swap' );
+
+.change{
+    background: rgb(228, 220, 220);
+    border: 2px solid rgb(68, 28, 1);
+    padding: 20px;
+    display: inline-block;
+} 
+
+img{
+
+    height: 200px;
+    width: 300px;
+}
+
+.cw  {
+
+    background: rgb(250, 152, 4);
+    border:100% solid rgb(223, 247, 7);
+    font-family: 'Righteous', cursive;
+    
+}
+
+.cw :hover {
+
+    background: rgb(224, 252, 100);
+    border:100% solid rgb(236, 240, 9);
+    font-family: 'Righteous', cursive;
+    border-radius: 60px;
+}
+
+
+button{
+        margin: 54px ;
+    background: rgb(46, 46, 46);
+    border-radius: 80px;
+    /* width: 70px;
+    height: 50px; */
+    
+
+}

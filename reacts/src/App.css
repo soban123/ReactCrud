@@ -1,0 +1,56 @@
+.App {
+  /* text-align: center; */
+  padding: 75px auto;
+  
+
+}
+.set{ 
+  /* display: flex; */
+  margin: 10px;
+  padding: 6px;
+}
+
+  .cs{  width: 20px;
+    height:10%; }
+
+.sets{  width: 50%; height: 80%; background: rgb(235, 233, 233); padding: 25px; margin: 30px; }
+.cls{ background: rgb(19, 0, 124); 
+padding: 100px 400px;
+
+}
+.bu{
+  background: #000;
+  border-radius: 200px;
+  width: 10px;
+}
+
+/* button{ border-radius: 50px; width: 20px; background: cornflowerblue;} */
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #001a4d;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
