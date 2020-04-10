@@ -1,4 +1,4 @@
-import React , { useState } from 'react';
+import React , { useState,history,useEffect } from 'react';
 
 import {  FormGroup   } from 'reactstrap';
 import { Link } from 'react-router-dom'
@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom'
 import './App.css';
 
  
-function Login() {
+function Login(props) {
 
   let [pass, setPass] = useState('');
   let [email, setEmail] = useState('');
-  let [ loggedIn , setLogedIn ] = useState('True') ;
+  let [ loggedIn , setLogedIn ] = useState('False') ;
    const handleSubmit = (event) =>
   {
     event.preventDefault();
@@ -18,20 +18,42 @@ function Login() {
      email,
      pass
    }
-   fetch('http://myapp144.herokuapp.com/users', {
-    method: 'post',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(obj)
+   console.log(obj);
+   fetch('http://localhost/mamdani/tets.php', {
+    method: 'POST',
+    mode: 'cors',
+  
+    headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      },
+    
+
+    body: JSON.stringify(obj) //
   }).then(function(response) {
     return response.json();
-  }).then(function(data) {
-    console.log(data)
-  });
+  })
+  .then(function(data) 
+  {  if(data[0].role == "admin"){ 
+    setLogedIn('True') ; }
+    localStorage.setItem('login' , 'True');
+
+    } 
+    )
+  
   
   } 
 
-  return (
-    <div>
+  useEffect ( () => {
+    
+    let token =  localStorage.getItem('login' );
+   if(loggedIn=="True" || token == "True"   ){
+    props.history.push('/profile')
+console.log(loggedIn)    }
+
+  })
+
+  return ( <div>
     
     <form className="App cls text-center" onSubmit={ handleSubmit } >
       <div className="sets">
@@ -50,7 +72,9 @@ function Login() {
       </FormGroup>
 
 
-         <Link to="/profile"  > <button  className="btn  btn-primary "type="submit" > Login  </button></Link>
+         
+         <button  className="btn  btn-primary "type="submit" > Login  </button>
+        
        <br></br>
        <br></br>
       <Link to='/signup'>  <button  className="btn  btn-primary ">   SignUp  </button></Link>
@@ -58,6 +82,9 @@ function Login() {
     </form>
     
     </div>
+    
+      
+    
   );
 }
 

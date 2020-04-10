@@ -10,8 +10,8 @@ function signup  () {
   let [pass, setPass] = useState('');
   let [email, setEmail] = useState('');
   let [Name, setName] = useState('');
-  let [Status, setStatus] = useState('Inactive');
-  let [Role, setRole] = useState('Admin');
+  let [Status, setStatus] = useState('inactive');
+  let [Role, setRole] = useState('admin');
 
   const handleSubmit = (event) =>
   {
@@ -19,12 +19,13 @@ function signup  () {
    let obj = {
      email,
      pass,
-     Name,
-     Status,
-     Role
+     name : Name,
+     status : Status,
+     role : Role
    }
    fetch('http://localhost/mamdani/tets.php', {
     method: 'post',
+    mode: 'cors',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(obj)
   }).then(function(response) {
@@ -62,8 +63,8 @@ function signup  () {
         <FormGroup>
         <Label for="Role">Role</Label>
         <Input type="select" name="Role" id="Role" value={Role} onChange={(event)=>{setRole(event.target.value)}} >
-          <option> Admin </option>
-          <option> User </option>
+          <option> admin </option>
+          <option> user </option>
          
         </Input>
       </FormGroup>
@@ -71,8 +72,8 @@ function signup  () {
       <FormGroup>
         <Label for="Select">Status</Label>
         <Input type="select" name="Status" id="status" value={Status} onChange={(event)=>{setStatus(event.target.value)}} >
-          <option> Active  </option>
-          <option> Inactive </option>
+          <option> active  </option>
+          <option> inactive </option>
          
         </Input>
       </FormGroup>

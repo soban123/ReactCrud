@@ -6,21 +6,31 @@ import {
      } from "react-router-dom";
 
 
-       const Nav = () => (
+       function Nav ()  {
 
+         const logout = () =>{
 
-        
-<div className="container2">
+          localStorage.removeItem('login');
+  
+         }
 
+         return (       <div className="container2">
+          
+          
+          
+          <Link className="headitems" to='/' >  
+          <button  className="btn btn-danger" onClick={ logout } > Logout </button>  
+           </Link>
+          
+          
+          
+          
+          </div>
+            )
+               
 
-<Link className="headitems" to='/adduser'>  Add User  </Link>
-<Link className="headitems" to='/delete' >  Delete User   </Link>
-<Link className="headitems" to='/Update ' >  Update User   </Link>
+       }
 
-
-
-
-</div>
-     )
+ 
 
      export default Nav ;
