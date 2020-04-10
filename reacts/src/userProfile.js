@@ -18,6 +18,7 @@ const UserProfile = () => {
       }).then(function(data) {
         console.log(data)
       });
+      window.location.reload();
     }
 
     useEffect ( () => {
