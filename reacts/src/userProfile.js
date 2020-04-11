@@ -5,9 +5,21 @@ import { Table } from 'reactstrap';
 const UserProfile = () => {
 
     let [ userData , setData  ] = useState([]) ;
+    let [ searchData , setSearch  ] = useState([]) ;
+    let [ isSearch , setisSearch  ] = useState(false);
+    
+
+
+    const handlesearch = (event) =>{
+      
+      let arr = []
+       arr = userData.filter( e => e.name.includes(event.target.value  )  )
+      setSearch(arr);
+      setisSearch(true)
+     }
 
    const handleDelete = ( id ) =>{
-      console.log(id);
+      
       fetch('http://localhost/mamdani/tets.php/?id='+id , {
         method: 'delete',
         mode: 'cors' ,
@@ -16,7 +28,7 @@ const UserProfile = () => {
       }).then(function(response) {
         return response.json();
       }).then(function(data) {
-        console.log(data)
+        
       });
       window.location.reload();
     }
@@ -25,25 +37,30 @@ const UserProfile = () => {
         // Simple GET request using fetch
         fetch('http://localhost/mamdani/tets.php')
             .then(response => response.json())
-            .then(data => setData( data ));
+            .then(data => setData( data )    );
     },[])
+
+    const  handleArr = (data) =>{
+
+     return data.map( e => { 
+    
+        return    <tr>
+             <td> {e.id}  </td>
+            <td> {e.name} </td>
+            <td> {e.email}</td>
+            <td> {e.role}</td>
+            <button className="btn btn-primary"  >  Update </button>
+            <button className="btn btn-danger" onClick={ ()=>{handleDelete(e.id) }  }>  Delete </button>
+         </tr>
+        
+         } ) 
+    }
         
     console.log(userData)
-let array_users = userData.map( e => { 
-    
-    return    <tr>
-         <td> {e.id}  </td>
-        <td> {e.name} </td>
-        <td> {e.email}</td>
-        <td> {e.role}</td>
-        <button className="btn btn-primary"  >  Update </button>
-        <button className="btn btn-danger" onClick={ ()=>{handleDelete(e.id) }  }>  Delete </button>
-     </tr>
-    
-     } )
+let array_users =  !isSearch  ?  handleArr(userData)  : handleArr(searchData);
 
     return <> 
-    <Nav />
+    <Nav  state={ handlesearch  }  />
     <Table dark>
   
   <tr>

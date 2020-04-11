@@ -1,5 +1,5 @@
 import React , { useState,history,useEffect } from 'react';
-
+import UserProfile from './userProfile'
 import {  FormGroup   } from 'reactstrap';
 import { Link } from 'react-router-dom'
 
@@ -10,7 +10,8 @@ function Login(props) {
 
   let [pass, setPass] = useState('');
   let [email, setEmail] = useState('');
-  let [ loggedIn , setLogedIn ] = useState('False') ;
+  let [ loggedIn , setLogedIn ] = useState(false) ;
+  
    const handleSubmit = (event) =>
   {
     event.preventDefault();
@@ -18,7 +19,7 @@ function Login(props) {
      email,
      pass
    }
-   console.log(obj);
+   
    fetch('http://localhost/mamdani/tets.php', {
     method: 'POST',
     mode: 'cors',
@@ -35,26 +36,28 @@ function Login(props) {
   })
   .then(function(data) 
   {  if(data[0].role == "admin"){ 
-    setLogedIn('True') ; }
+    setLogedIn(true) ; 
     localStorage.setItem('login' , 'True');
-
+  }else{
+    console.log('inco')
+  }
     } 
     )
-  
+    
   
   } 
 
   useEffect ( () => {
     
     let token =  localStorage.getItem('login' );
-   if(loggedIn=="True" || token == "True"   ){
+   if( token == "True"   ){
     props.history.push('/profile')
 console.log(loggedIn)    }
-
   })
 
-  return ( <div>
+  return (   <div>
     
+  
     <form className="App cls text-center" onSubmit={ handleSubmit } >
       <div className="sets">
       <h1 >   Login : </h1><br/>
@@ -82,7 +85,7 @@ console.log(loggedIn)    }
     </form>
     
     </div>
-    
+
       
     
   );
