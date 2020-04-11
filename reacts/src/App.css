@@ -13,8 +13,8 @@
   .cs{  width: 20px;
     height:10%; }
 
-.sets{  width: 50%; height: 80%; background: rgb(235, 233, 233); padding: 25px; margin: 30px; }
-.cls{ background: rgb(19, 0, 124); 
+.sets{  width: 60%; height: 80%; background: rgb(27, 179, 199); padding: 25px; margin: 30px; border-radius: 30%; }
+.cls{ background: rgb(252, 252, 252); 
 padding: 100px 400px;
 
 }

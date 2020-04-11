@@ -1,5 +1,5 @@
 import React , { useState,history,useEffect } from 'react';
-import UserProfile from './userProfile'
+// import UserProfile from './userProfile'
 import {  FormGroup   } from 'reactstrap';
 import { Link } from 'react-router-dom'
 

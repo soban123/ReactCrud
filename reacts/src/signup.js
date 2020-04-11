@@ -32,6 +32,7 @@ function signup  () {
     return response.json();
   }).then(function(data) {
     console.log(data)
+    alert('you can now login')
   });
   // console.log(obj)
   } 

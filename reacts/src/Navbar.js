@@ -4,7 +4,7 @@ import './Navbar.css';
 import { 
     Link
      } from "react-router-dom";
-import { Input } from "reactstrap";
+
 
 
        function Nav (props)  {
@@ -23,6 +23,7 @@ import { Input } from "reactstrap";
 
          return (       <div className="container2">
           
+          <h1 style={{ color : "orange" }} > Admin Panel  </h1>
           
           <Link className="headitems" to='/' >  
           <button  className="btn btn-danger" onClick={ logout } > Logout </button>  

@@ -1,10 +1,10 @@
 import React from "react";
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 
 import UserProfile from './userProfile' ;
 import Login from './Login';
 import { Route,
-   Link,
+   
     BrowserRouter as Router } from "react-router-dom";
 import signup from './signup' ;
 
@@ -18,7 +18,7 @@ const CustomRoutes =  () =>(
 
 <div>
 
-{/* <Nav /> */}
+
 
 <Route exact path='/' component={Login} />
 <Route path='/signup' component={signup} />
